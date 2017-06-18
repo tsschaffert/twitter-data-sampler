@@ -31,6 +31,7 @@ function main(options) {
 function filterData(foldername: string) {
     let tmpDirname = ".tmp";
     if (fs.existsSync(tmpDirname)) {
+        // TODO does not work
         fs.rmdirSync(tmpDirname);
     }
 
@@ -69,6 +70,12 @@ function sampleFolder(foldername: string) {
 }
 
 function sampleUser(foldername: string, userid: string) {
+    if (fs.existsSync(`out/${userid}.json`)) {
+        // Don't do anything if output file already exists
+        console.log(`${userid}: Output exists.`);
+        return;
+    }
+
     let tweets = getUserTweets(foldername, userid);
     let userTweetCount = tweets.length;
 
