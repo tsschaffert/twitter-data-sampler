@@ -1,0 +1,17 @@
+{
+  "name": "twitter-data-sampler",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Steffen Schaffert",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^7.0.0",
+    "command-line-args": "^4.0.6",
+    "typescript": "^2.1.5"
+  },
+  "scripts": {
+    "start": "tsc && node bin/index.js"
+  },
+  "dependencies": {}
+}
