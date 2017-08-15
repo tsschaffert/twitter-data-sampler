@@ -16,6 +16,7 @@ interface Tweet {
         id_str: string
     },
     retweeted: boolean,
+    lang: string,
 }
 
 function main(options) {
@@ -46,9 +47,9 @@ function filterData(foldername: string) {
             let userid = match[1];
 
             let tweets = getUserTweets(foldername, userid);
-            tweets = tweets.filter((tweet) => !tweet.retweeted);
+            tweets = tweets.filter((tweet) => !tweet.retweeted && tweet.lang === 'en' && tweet.text.indexOf("RT") !== 0); // Filter out tweets that are not English and retweets
 
-            if (tweets.length >= 100) {
+            if (tweets.length >= 1000) {
                 writeSample(`${tmpDirname}/${userid}.json`, tweets);
             }
         }
