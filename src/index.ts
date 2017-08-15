@@ -49,7 +49,7 @@ function filterData(foldername: string) {
             let tweets = getUserTweets(foldername, userid);
             tweets = tweets.filter((tweet) => !tweet.retweeted && tweet.lang === 'en' && tweet.text.indexOf("RT") !== 0); // Filter out tweets that are not English and retweets
 
-            if (tweets.length >= 1000) {
+            if (tweets.length >= 100) {
                 writeSample(`${tmpDirname}/${userid}.json`, tweets);
             }
         }
